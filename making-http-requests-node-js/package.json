@@ -1,0 +1,22 @@
+{
+  "name": "making-http-requests-node-js",
+  "version": "1.0.0",
+  "description": "Some ways to make http requests in node",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Des Barrett",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/balcoder/learnyounode-snippets"
+  },
+  "dependencies": {
+    "axios": "^0.18.0",
+    "node-fetch": "^2.1.2",
+    "r2": "^2.0.0",
+    "request": "^2.85.0"
+  }
+}
