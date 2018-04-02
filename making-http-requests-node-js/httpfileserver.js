@@ -8,21 +8,19 @@
 //  command-line argument. You must use the fs.createReadStream() method to
 //  stream the file contents to the response.
 
-var http = require('http');
-var fs = require('fs');
+const http = require('http');
+const fs = require('fs');
 
 const port = process.argv[2];
 const filePath = process.argv[3];
 
 // Node HTTP server
-var server = http.createServer(function (req, res) {
-  // request handling logic...
+const server = http.createServer(function (req, res) {
+  // response handling logic...
   res.writeHead(200, {'Content-Type': 'text/plain'});
-  var readStream = fs.createReadStream(filePath);
-  //readStream.pipe(res.write());
+  const readStream = fs.createReadStream(filePath);
   readStream.pipe(res);
-  //readStream.on('finish',)
-
+  res.end();
 })
 server.listen(port)
 

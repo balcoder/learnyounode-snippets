@@ -5,16 +5,16 @@
 //  your program.
 
 var http = require('http')
-    var map = require('through2-map')
+var map = require('through2-map')
 
-    var server = http.createServer(function (req, res) {
-      if (req.method !== 'POST') {
-        return res.end('send me a POST\n')
-      }
+var server = http.createServer(function (req, res) {
+  if (req.method !== 'POST') {
+    return res.end('send me a POST\n')
+  }
+  //through2-map works like `Array.prototype.map` but for streams
+  req.pipe(map(function (chunk) {
+    return chunk.toString().toUpperCase()
+  })).pipe(res)
+})
 
-      req.pipe(map(function (chunk) {
-        return chunk.toString().toUpperCase()
-      })).pipe(res)
-    })
-
-    server.listen(Number(process.argv[2]))
+server.listen(Number(process.argv[2]))
